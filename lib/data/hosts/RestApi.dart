@@ -12,7 +12,7 @@ class RestApi {
   }
 
   Future<String?> post(relativeUrl, values) async {
-    Map<String, String> headers = await RestApi().headers();
+    Map<String, String> headers = await this.headers();
     Uri url = Uri.parse(hostUrl + relativeUrl);
     Future<http.Response> response =
         http.post(url, headers: headers, body: json.encode(values));
@@ -23,7 +23,7 @@ class RestApi {
   Future<String?> postFiles(String relativeUrl, Map<String, String> values,
       List<http.MultipartFile> files) async {
     try {
-      Map<String, String> headers = await RestApi().headers();
+      Map<String, String> headers = await this.headers();
       headers['Content-Type'] = 'multipart/form-data';
       Uri url = Uri.parse(hostUrl + relativeUrl);
       var request = http.MultipartRequest('POST', url)
@@ -40,7 +40,7 @@ class RestApi {
   }
 
   Future<String?> put(relativeUrl, values) async {
-    Map<String, String> headers = await RestApi().headers();
+    Map<String, String> headers = await this.headers();
     Uri url = Uri.parse(hostUrl + relativeUrl);
     Future<http.Response> response =
         http.put(url, headers: headers, body: json.encode(values));
@@ -49,14 +49,15 @@ class RestApi {
   }
 
   Future<String?> get(relativeUrl) async {
-    Map<String, String> headers = await RestApi().headers();
+    Map<String, String> headers = await this.headers();
+    print('headers $headers');
     Uri url = Uri.parse(hostUrl + relativeUrl);
     Future<http.Response> response = http.get(url, headers: headers);
     return await parseResponse(response, relativeUrl, 'GET', '');
   }
 
   Future<String?> delete(relativeUrl) async {
-    Map<String, String> headers = await RestApi().headers();
+    Map<String, String> headers = await this.headers();
     Uri url = Uri.parse(hostUrl + relativeUrl);
     Future<http.Response> response = http.delete(url, headers: headers);
     return await parseResponse(response, relativeUrl, 'DELETE', '');

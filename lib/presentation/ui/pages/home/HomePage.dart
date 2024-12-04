@@ -12,7 +12,9 @@ class HomePage extends StatelessWidget {
         create: (_) => HomePageViewModel(context: context, widget: this),
         child: Consumer<HomePageViewModel>(
             builder: (context, viewModel, child) => Scaffold(
-                  body: Placeholder(),
+                  body: Column(
+                    children: viewModel.cats.map((e) => Text(e.name)).toList(),
+                  ),
                 )));
   }
 }

@@ -2,17 +2,16 @@ import 'package:pragma/domain/providers/Localization/LocallizationProvider.dart'
 import 'package:pragma/domain/repositories/LocalizationRepository.dart';
 
 class LoadUseCase {
-  final LocalizationRepository _localizationRepository;
-  final LocalizationProvider _localizationProvider;
+  final LocalizationRepository localizationRepository;
+  final LocalizationProvider localizationProvider;
 
   LoadUseCase({
-    required LocalizationRepository localizationRepository,
-    required LocalizationProvider localizationProvider,
-  })  : _localizationRepository = localizationRepository,
-        _localizationProvider = localizationProvider;
+    required this.localizationProvider,
+    required this.localizationRepository,
+  });
 
   Future<void> call() async {
-    final locale = await _localizationRepository.getLanguage();
-    _localizationProvider.locale = locale;
+    final locale = await localizationRepository.getLanguage();
+    localizationProvider.locale = locale;
   }
 }

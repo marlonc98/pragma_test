@@ -39,7 +39,7 @@ class SplashPage extends StatelessWidget {
         ),
       ),
       function: GetIt.instance.get<LoadUseCase>().call,
-      duration: 200000,
+      // duration: 1500,
       nextScreen: HomePage(),
     );
   }

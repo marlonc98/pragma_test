@@ -12,9 +12,9 @@ class ExceptionEntity implements Exception {
 
   factory ExceptionEntity.fromE(Exception e) {
     if (e is ExceptionEntity) {
-      throw e;
+      return e;
     } else {
-      throw ExceptionEntity();
+      return ExceptionEntity();
     }
   }
 }

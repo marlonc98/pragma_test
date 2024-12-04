@@ -5,9 +5,8 @@ class CatEntity {
   String? countryCode;
   String? description;
   String image;
-  double? height;
   String? lifeSpan;
-  double? weight;
+  String? weight;
   int? adaptability;
   int? intelligence;
   int? affectionLevel;
@@ -20,7 +19,6 @@ class CatEntity {
     this.origin,
     this.countryCode,
     this.description,
-    this.height,
     this.lifeSpan,
     this.weight,
     this.adaptability,

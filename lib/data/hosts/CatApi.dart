@@ -2,7 +2,7 @@ import 'package:pragma/data/hosts/RestApi.dart';
 
 class CatApi extends RestApi {
   @override
-  String hostUrl = 'https://api.thecatapi.com/v1/';
+  String hostUrl = 'https://api.thecatapi.com/v1';
 
   @override
   Future<Map<String, String>> headers() async {

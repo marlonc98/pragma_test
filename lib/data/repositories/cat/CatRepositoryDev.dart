@@ -1,5 +1,6 @@
 import 'package:either_dart/either.dart';
 import 'package:pragma/data/repositories/cat/CatRepositoryFake.dart';
+import 'package:pragma/data/repositories/cat/api/SearchCatApiImpl.dart';
 import 'package:pragma/domain/entities/CatEntity.dart';
 import 'package:pragma/domain/entities/ExceptionEntity.dart';
 import 'package:pragma/domain/repositories/CatRepository.dart';
@@ -14,5 +15,5 @@ class CatRepositoryDev extends CatRepository {
   @override
   Future<Either<ExceptionEntity, List<CatEntity>>> searchCats(
           String query, int page, int itemsPerPage) =>
-      fakeRep.searchCats(query, page, itemsPerPage);
+      SearchCatApiImpl(query, page, itemsPerPage);
 }

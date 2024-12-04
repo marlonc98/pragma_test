@@ -16,7 +16,7 @@ class HomePageViewModel extends ViewModel<HomePage> {
   int page = 1;
   int itemsPerPage = 10;
 
-  void onChangeQuery(String value) {
+  void handleOnChangeQuery(String value) {
     searching = value;
     page = 1;
     cats.clear();

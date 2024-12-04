@@ -6,6 +6,18 @@ class CatCardWidget extends StatelessWidget {
   final Function()? onTap;
   const CatCardWidget({super.key, required this.cat, this.onTap});
 
+  Widget _NotFoundImage(BuildContext context) {
+    return Container(
+      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
+      child: Image.asset(
+        'assets/cat/cat_not_found.png',
+        height: 250,
+        fit: BoxFit.cover,
+        width: double.infinity,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -20,6 +32,13 @@ class CatCardWidget extends StatelessWidget {
               fit: BoxFit.cover,
               alignment: Alignment.topCenter,
               width: double.infinity,
+              errorBuilder: (context, error, stackTrace) {
+                return _NotFoundImage(context);
+              },
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return _NotFoundImage(context);
+              },
             ),
             Positioned(
               bottom: 0,

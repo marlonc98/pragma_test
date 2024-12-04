@@ -22,17 +22,24 @@ class SplashPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Theme.of(context).textTheme.bodyMedium?.color),
+                  color: Colors.white),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5 - 200,
+              height: MediaQuery.of(context).size.height * 0.5 - 240,
             ),
             Lottie.asset('assets/splash/splash.json', height: 200),
+            SizedBox(
+              height: 4,
+            ),
+            Text(
+              'Version 1.0.0',
+              style: TextStyle(color: Colors.white),
+            )
           ],
         ),
       ),
       function: GetIt.instance.get<LoadUseCase>().call,
-      duration: 2000,
+      duration: 200000,
       nextScreen: HomePage(),
     );
   }

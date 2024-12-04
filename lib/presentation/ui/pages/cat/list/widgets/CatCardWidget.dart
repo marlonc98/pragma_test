@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pragma/domain/entities/CatEntity.dart';
+import 'package:pragma/presentation/ui/theme/LightTheme.dart';
+import 'package:pragma/presentation/ui/widgets/notReadImage.dart/NotReadImageWidget.dart';
 
 class CatCardWidget extends StatelessWidget {
   final CatEntity cat;
   final Function()? onTap;
   const CatCardWidget({super.key, required this.cat, this.onTap});
-
-  Widget _NotFoundImage(BuildContext context) {
-    return Container(
-      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
-      child: Image.asset(
-        'assets/cat/cat_not_found.png',
-        height: 250,
-        fit: BoxFit.cover,
-        width: double.infinity,
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +23,11 @@ class CatCardWidget extends StatelessWidget {
               alignment: Alignment.topCenter,
               width: double.infinity,
               errorBuilder: (context, error, stackTrace) {
-                return _NotFoundImage(context);
+                return NotReadImageWidget();
               },
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
-                return _NotFoundImage(context);
+                return NotReadImageWidget();
               },
             ),
             Positioned(
@@ -71,16 +61,15 @@ class CatCardWidget extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Theme.of(context)
-                                      .scaffoldBackgroundColor),
+                                  color: lightTheme.scaffoldBackgroundColor),
                             ),
                             cat.origin != null
                                 ? Text(
                                     cat.origin!,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        color: Theme.of(context)
-                                            .scaffoldBackgroundColor),
+                                        color:
+                                            lightTheme.scaffoldBackgroundColor),
                                   )
                                 : Container(),
                           ],
@@ -92,8 +81,7 @@ class CatCardWidget extends StatelessWidget {
                               cat.oneCharacteristic!,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                  color: Theme.of(context)
-                                      .scaffoldBackgroundColor),
+                                  color: lightTheme.scaffoldBackgroundColor),
                             ))
                           : Container(),
                     ],

@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pragma/domain/use_cases/default/LoadUseCase.dart';
-import 'package:pragma/presentation/ui/pages/home/HomePage.dart';
+import 'package:pragma/presentation/ui/pages/cat/list/CatListPage.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatelessWidget {
@@ -40,7 +40,7 @@ class SplashPage extends StatelessWidget {
       ),
       function: GetIt.instance.get<LoadUseCase>().call,
       // duration: 1500,
-      nextScreen: HomePage(),
+      nextScreen: CatListPage(),
     );
   }
 }

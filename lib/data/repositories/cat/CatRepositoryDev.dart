@@ -3,6 +3,7 @@ import 'package:pragma/data/repositories/cat/CatRepositoryFake.dart';
 import 'package:pragma/data/repositories/cat/api/SearchCatApiImpl.dart';
 import 'package:pragma/domain/entities/CatEntity.dart';
 import 'package:pragma/domain/entities/ExceptionEntity.dart';
+import 'package:pragma/domain/entities/SearchResultEntity.dart';
 import 'package:pragma/domain/repositories/CatRepository.dart';
 
 class CatRepositoryDev extends CatRepository {
@@ -13,7 +14,7 @@ class CatRepositoryDev extends CatRepository {
       fakeRep.getCatById(id);
 
   @override
-  Future<Either<ExceptionEntity, List<CatEntity>>> searchCats(
+  Future<Either<ExceptionEntity, SearchResultEntity<CatEntity>>> searchCats(
           String query, int page, int itemsPerPage) =>
       SearchCatApiImpl(query, page, itemsPerPage);
 }

@@ -11,6 +11,8 @@ class CatEntity {
   int? intelligence;
   int? affectionLevel;
   int? childFriendly;
+  String? temperament;
+  String? oneCharacteristic;
 
   CatEntity({
     required this.id,
@@ -25,5 +27,7 @@ class CatEntity {
     this.intelligence,
     this.affectionLevel,
     this.childFriendly,
+    this.temperament,
+    this.oneCharacteristic,
   });
 }

@@ -16,6 +16,8 @@ class CatDto {
       intelligence: json['intelligence'],
       lifeSpan: json['life_span'],
       weight: json['weight']['metric'],
+      temperament: json['temperament'],
+      oneCharacteristic: json['temperament']?.split(',').first,
     );
   }
 }

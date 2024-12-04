@@ -1,5 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:pragma/domain/use_cases/default/LoadUseCase.dart';
 import 'package:pragma/presentation/ui/pages/home/HomePage.dart';
 import 'package:lottie/lottie.dart';
 
@@ -22,13 +24,15 @@ class SplashPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).textTheme.bodyMedium?.color),
             ),
-            Lottie.asset(
-              'assets/splash/splash.json',
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5 - 200,
             ),
+            Lottie.asset('assets/splash/splash.json', height: 200),
           ],
         ),
       ),
-      duration: 3000000,
+      function: GetIt.instance.get<LoadUseCase>().call,
+      duration: 2000,
       nextScreen: HomePage(),
     );
   }

@@ -41,9 +41,7 @@ class LocalizationStateImpl extends LocalizationState {
     for (String key in values.keys) {
       try {
         string = string!.replaceAll('{$key}', '${values[key]}');
-        print("cats string: $string");
       } catch (e) {
-        print("cats Error: $e");
         return "";
       }
     }

@@ -4,7 +4,7 @@ Este proyecto es una prueba técnica para el proceso de ingreso a la empresa **P
 
 ## Arquitectura
 
-El proyecto está diseñado para seguir un enfoque modular, utilizando **inyección de dependencias** a través de un mecanismo llamado `injectionDependency`. Esta arquitectura asegura una alta flexibilidad y permite adaptar el comportamiento de la aplicación según el entorno de desarrollo.
+El proyecto está diseñado para seguir una arquitectura limpia por capaz, utilizando **inyección de dependencias** a través de un mecanismo llamado `injectionDependency`. Esta arquitectura asegura una alta flexibilidad y permite adaptar el comportamiento de la aplicación según el entorno de desarrollo.
 
 ### Flujo de la Aplicación
 
